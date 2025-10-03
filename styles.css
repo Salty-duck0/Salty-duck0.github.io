@@ -1,0 +1,61 @@
+:root {
+  --text: #e9edea;
+  --background: #0d120f;
+  --primary: #a6c4b0;
+  --secondary: #426e50;
+  --accent: #6ec78b;
+  --font-main: 'Courier New', Monaco, 'Lucida Console', monospace;
+  --font-size-base: 1rem;
+  --font-size-h2: 1.2rem;
+  --font-size-h3: 1rem;
+}
+
+body, html {
+  margin: 0; padding: 0;
+  font-family: var(--font-main);
+  background: var(--background);
+  color: var(--text);
+  height: 100vh;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+header {
+  background: var(--secondary);
+  padding: 2rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar a {
+    color: var(--accent);
+    margin: 0 2rem;
+    font-size: larger;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+.navbar a:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 840px) {
+    html {
+        font-size: 120%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar a {
+        margin: 0.1rem 0.1rem;
+    }
+    .nav-right {
+        padding-top: 1rem;
+        flex-direction: column;
+    }
+}
