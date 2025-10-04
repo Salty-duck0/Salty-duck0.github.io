@@ -8,6 +8,8 @@
   --font-size-base: 1rem;
   --font-size-h2: 1.2rem;
   --font-size-h3: 1rem;
+
+  --max-width: 830px;
 }
 
 body, html {
@@ -40,6 +42,97 @@ header {
 }
 .navbar a:hover {
     color: var(--primary);
+}
+
+main {
+    max-width: var(--max-width);
+    margin: 4rem auto;
+    text-align: justify;
+}
+
+.main-content {
+    margin: 0 2rem;
+}
+
+.main-links {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+
+.no-bs-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  
+  border: 2px solid var(--accent);
+  background: var(--background);
+  color: var(--accent);
+  font-family: var(--font-main);
+  font-weight: bold;
+
+  animation: pulse 2s infinite;
+}
+
+.no-bs-btn:hover {
+  background: var(--accent);
+  color: var(--background);
+  transform: scale(1.15);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+.no-bs-btn.active {
+  background: var(--accent);
+  color: var(--background);
+  box-shadow: 0 0 30px var(--accent);
+
+  animation: none;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 30px var(--accent); }
+  50% { box-shadow: 0 0 40px var(--accent), 0 0 60px var(--accent); }
+  100% { box-shadow: 0 0 30px var(--accent); }
+}
+
+.typing {
+  position: relative;
+}
+
+.typing::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: -0.2em;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.word {
+  opacity: 0;
+}
+
+.word.visible {
+  opacity: 1;
+}
+
+
+.footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-top: 4rem;
+    border-top: 1px solid var(--secondary);
 }
 
 @media (max-width: 840px) {
