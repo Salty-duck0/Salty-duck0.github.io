@@ -54,9 +54,10 @@ main h2{
     font-size: var(--font-size-h2);
 }
 
-.main-content {
+.main-content{
     margin: 0 2rem;
 }
+
 
 .main-links {
     color: var(--accent);
@@ -131,7 +132,7 @@ main h2{
 }
 
 .updates,.experience {
-    margin: 4rem 0;
+    margin: 4rem 2rem;
 }
 
 .footer {
