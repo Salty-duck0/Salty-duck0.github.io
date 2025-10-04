@@ -6,7 +6,7 @@
   --accent: #6ec78b;
   --font-main: 'Courier New', Monaco, 'Lucida Console', monospace;
   --font-size-base: 1rem;
-  --font-size-h2: 1.2rem;
+  --font-size-h2: 2rem;
   --font-size-h3: 1rem;
 
   --max-width: 830px;
@@ -48,6 +48,10 @@ main {
     max-width: var(--max-width);
     margin: 4rem auto;
     text-align: justify;
+}
+
+main h2{
+    font-size: var(--font-size-h2);
 }
 
 .main-content {
@@ -238,6 +242,10 @@ main {
     .nav-right {
         padding-top: 1rem;
         flex-direction: column;
+    }
+
+    main h2 {
+      margin: 0 2rem;
     }
 
     .research-card__header {
