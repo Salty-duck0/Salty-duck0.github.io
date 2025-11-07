@@ -37,16 +37,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cache original HTML for instant restore
     if (!el.dataset.originalHtml) el.dataset.originalHtml = el.innerHTML;
 
-    // Build wrapped content off-DOM to minimize reflows
-    const tmp = document.createElement('div');
-    tmp.innerHTML = el.dataset.originalHtml;
-    const fragment = document.createDocumentFragment();
-    Array.from(tmp.childNodes).forEach(n => fragment.appendChild(wrapWordsKeepMarkup(n)));
+    // Prepare wrapped markup once and reuse it on subsequent toggles
+    if (!el.dataset.wrappedHtml) {
+      const tmp = document.createElement('div');
+      tmp.innerHTML = el.dataset.originalHtml;
+      const container = document.createElement('div');
+      Array.from(tmp.childNodes).forEach(n => container.appendChild(wrapWordsKeepMarkup(n)));
+      el.dataset.wrappedHtml = container.innerHTML;
+    }
 
     // Replace content and start typing
-    el.innerHTML = '';
+    el.innerHTML = el.dataset.wrappedHtml;
     el.classList.add('typing');
-    el.appendChild(fragment);
 
     const words = el.querySelectorAll('.word');
     let i = 0;
@@ -167,13 +169,18 @@ function startLiveClock() {
 // Start on load and pause when the tab is hidden
 let clockTimerId = null;
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => { clockTimerId = startLiveClock(); });
+  document.addEventListener('DOMContentLoaded', () => {
+    clockTimerId = startLiveClock();
+  });
 } else {
   clockTimerId = startLiveClock();
 }
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
-    if (clockTimerId) { clearInterval(clockTimerId); clockTimerId = null; }
+    if (clockTimerId) {
+      clearInterval(clockTimerId);
+      clockTimerId = null;
+    }
   } else if (!clockTimerId) {
     clockTimerId = startLiveClock();
   }

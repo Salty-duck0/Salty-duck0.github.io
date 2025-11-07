@@ -23,8 +23,13 @@ body, html {
 }
 
 header {
-  background: var(--secondary);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(13, 18, 15, 0.92);
+  backdrop-filter: blur(6px);
   padding: 2rem;
+  border-bottom: 1px solid rgba(110, 199, 139, 0.35);
 }
 
 .navbar {
@@ -42,6 +47,13 @@ header {
 }
 .navbar a:hover {
     color: var(--primary);
+}
+
+.navbar a:focus-visible,
+.footer a:focus-visible,
+.main-links:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 main {
@@ -79,6 +91,7 @@ main h2{
   color: var(--accent);
   font-family: var(--font-main);
   font-weight: bold;
+  cursor: pointer;
 
   animation: pulse 2s infinite;
 }
@@ -87,15 +100,15 @@ main h2{
   background: var(--accent);
   color: var(--background);
   transform: scale(1.15);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-}
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  }
 
-.no-bs-btn.active {
+  .no-bs-btn.active {
   background: var(--accent);
   color: var(--background);
   box-shadow: 0 0 30px var(--accent);
 
-  animation: none;
+    animation: none;
 }
 
 @keyframes pulse {
@@ -256,5 +269,5 @@ section ul{
     .research-card__header {
     flex-direction: column;
     align-items: flex-start;
-  }
+    }
 }
