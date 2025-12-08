@@ -39,12 +39,14 @@ html {
   color: var(--accent);
   font-size: 1.5rem;
   text-decoration: none;
+  padding: 0.1rem 0;
   transition: all 0.3s ease;
 }
 
 .social-sidebar a:hover {
   color: var(--primary);
-  transform: scale(1.6);
+  transform: scale(1.5);
+  padding: 0.5rem 0;
 }
 
 .social-sidebar a:focus-visible,
@@ -196,6 +198,14 @@ section ul {
     justify-content: center;
     gap: 2rem;
     margin: 3rem 0;
+  }
+
+  .social-sidebar a {
+    padding: 0 0.1rem;
+  }
+
+  .social-sidebar a:hover {
+    padding: 0 0.5rem;
   }
 
   main h2 {
