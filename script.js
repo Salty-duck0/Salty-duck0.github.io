@@ -46,3 +46,61 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
+
+// Profile Image Long Press Feature
+document.addEventListener('DOMContentLoaded', () => {
+  const profilePic = document.querySelector('.profile-pic');
+  const wrapper = document.querySelector('.profile-wrapper');
+
+  if (!profilePic || !wrapper) return;
+
+  let pressTimer;
+  const PRESS_DURATION = 750; // 0.75 seconds
+  const pixelDuck = 'public/pixel-duck.png';
+  const coolDuck = 'public/cool-duck.png';
+
+  function startPress(e) {
+    // Prevent default context menu on long press for touch devices
+    if (e.type === 'touchstart') {
+      e.preventDefault(); // Prevent long-press context menu
+    }
+
+    wrapper.classList.add('loading');
+
+    pressTimer = setTimeout(() => {
+      swapImage();
+      wrapper.classList.remove('loading');
+      if (navigator.vibrate) navigator.vibrate(50);
+    }, PRESS_DURATION);
+  }
+
+  // Block context menu (right-click / long-press menu) on profile image
+  profilePic.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+  });
+
+  function endPress() {
+    clearTimeout(pressTimer);
+    wrapper.classList.remove('loading');
+  }
+
+  function swapImage() {
+    const currentSrc = profilePic.getAttribute('src');
+    // Check if current src contains the filename (to handle absolute paths)
+    if (currentSrc.includes('pixel-duck')) {
+      profilePic.src = coolDuck;
+    } else {
+      profilePic.src = pixelDuck;
+    }
+  }
+
+  // Mouse events
+  profilePic.addEventListener('mousedown', startPress);
+  profilePic.addEventListener('mouseup', endPress);
+  profilePic.addEventListener('mouseleave', endPress);
+
+  // Touch events
+  profilePic.addEventListener('touchstart', startPress, { passive: true });
+  profilePic.addEventListener('touchend', endPress);
+  profilePic.addEventListener('touchcancel', endPress);
+});

@@ -66,49 +66,76 @@ main h2 {
   font-size: var(--font-size-h2);
 }
 
-.main-content {
-  margin: 0 2rem;
-}
-
-
 .main-links {
   color: var(--accent);
   text-decoration: none;
 }
 
+.intro-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-between;
+}
 
+.intro-text {
+  flex: 1;
+}
 
-
-.typing {
+.profile-wrapper {
   position: relative;
+  width: 135px;
+  height: 135px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.typing::after {
-  content: "";
-  display: inline-block;
-  width: 8px;
-  height: 1em;
-  background: var(--accent);
-  margin-left: 2px;
-  vertical-align: -0.2em;
-  animation: blink 1s step-end infinite;
+.profile-pic {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+  border: 2px solid var(--accent);
+  transition: transform 0.2s;
+  /* Disable default drag and touch behaviors */
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  /* Disable iOS long-press menu */
+  touch-action: manipulation;
+  /* Disable double-tap zoom, allow pan/pinch */
+  cursor: pointer;
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
+.profile-wrapper:active .profile-pic {
+  transform: scale(0.95);
 }
 
-.word {
-  opacity: 0;
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  pointer-events: none;
+  transform: rotate(-90deg);
 }
 
-.word.visible {
-  opacity: 1;
+.progress-ring__circle {
+  stroke: var(--accent);
+  stroke-width: 4;
+  fill: transparent;
+  stroke-dasharray: 390;
+  stroke-dashoffset: 390;
+  transition: stroke-dashoffset .75s linear;
 }
 
-.updates,
+.profile-wrapper.loading .progress-ring__circle {
+  stroke-dashoffset: 0;
+}
+
 .experience,
 .publications {
   margin: 3rem 0;
@@ -143,6 +170,18 @@ section ul {
 @media (max-width: 985px) {
   html {
     font-size: 120%;
+  }
+
+  .intro-container {
+    margin: 0 2rem;
+    flex-direction: column-reverse;
+    text-align: justify;
+    gap: 1.5rem;
+  }
+
+  .profile-pic {
+    width: 125px;
+    height: 125px;
   }
 
   .social-sidebar {

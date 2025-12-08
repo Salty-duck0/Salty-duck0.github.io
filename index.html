@@ -8,22 +8,34 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="script.js" defer></script>
-    <link rel="icon" href="public/duck.png" type="image/png">
-    <link rel="apple-touch-icon" href="public/duck.png">
+    <link rel="icon" href="public/pixel-duck.png" type="image/png">
+    <link rel="apple-touch-icon" href="public/pixel-duck.png">
+
+    <link rel="preload" href="public/pixel-duck.png" as="image">
+    <link rel="preload" href="public/cool-duck.png" as="image">
 </head>
 
 <body>
     <main>
         <h2>About Me</h2>
         <div class="main-content">
-            <div class="foreground" id="normal-content">
-                <p>Hi! I'm <a class="main-links" href="mailto:nitishsingla1159@gmail.com" target="_blank">Nitish
-                        Singla</a>.</p>
-                <p>I am an undergrad at <a class="main-links" href="https://cic.du.ac.in/" target="_blank"> Cluster
-                        Innovation Centre</a>, University of Delhi, studying Information Technology and Mathematical
-                    Innovation. Right now, I am
-                    working as a research intern at <a class="main-links" href="https://trac-ai.iastate.edu/"
-                        target="_blank">Translational AI Center</a> at Iowa State University.</p>
+            <div class="intro-container">
+                <div class="intro-text">
+                    <p>Hi! I'm <a class="main-links" href="mailto:nitishsingla1159@gmail.com" target="_blank">Nitish
+                            Singla</a>.</p>
+                    <p>I am an undergrad at <a class="main-links" href="https://cic.du.ac.in/" target="_blank"> Cluster
+                            Innovation Centre</a>, University of Delhi, studying Information Technology and Mathematical
+                        Innovation. Right now, I am
+                        working as a research intern at <a class="main-links" href="https://trac-ai.iastate.edu/"
+                            target="_blank">Translational AI Center</a> at Iowa State University.</p>
+                </div>
+                <div class="profile-wrapper">
+                    <svg class="progress-ring" width="135" height="135">
+                        <circle class="progress-ring__circle" stroke="white" stroke-width="4" fill="transparent" r="62"
+                            cx="67.5" cy="67.5" />
+                    </svg>
+                    <img src="public/pixel-duck.png" alt="Profile Picture" class="profile-pic">
+                </div>
             </div>
 
             <section class="experience">
