@@ -46,7 +46,7 @@ html {
 .social-sidebar a:hover {
   color: var(--primary);
   transform: scale(1.5);
-  padding: 0.5rem 0;
+  padding: 0.2rem 0;
 }
 
 .social-sidebar a:focus-visible,
@@ -77,53 +77,7 @@ main h2 {
 }
 
 
-.no-bs-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
 
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-
-  border: 2px solid var(--accent);
-  background: var(--background);
-  color: var(--accent);
-  font-family: var(--font-main);
-  font-weight: bold;
-  cursor: pointer;
-
-  animation: pulse 2s infinite;
-}
-
-.no-bs-btn:hover {
-  background: var(--accent);
-  color: var(--background);
-  transform: scale(1.15);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-}
-
-.no-bs-btn.active {
-  background: var(--accent);
-  color: var(--background);
-  box-shadow: 0 0 30px var(--accent);
-
-  animation: none;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 30px var(--accent);
-  }
-
-  50% {
-    box-shadow: 0 0 40px var(--accent), 0 0 60px var(--accent);
-  }
-
-  100% {
-    box-shadow: 0 0 30px var(--accent);
-  }
-}
 
 .typing {
   position: relative;
