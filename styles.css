@@ -24,36 +24,30 @@ html {
   transition: all 0.3s ease;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(13, 18, 15, 0.92);
-  backdrop-filter: blur(6px);
-  padding: 2rem;
-  border-bottom: 1px solid rgba(110, 199, 139, 0.35);
-}
-
-.navbar {
+.social-sidebar {
+  position: fixed;
+  right: calc(50% - var(--max-width) / 2 - 3rem);
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 1000;
 }
 
-.navbar a {
+.social-sidebar a {
   color: var(--accent);
-  margin: 0 2rem;
-  font-size: larger;
-  font-weight: bold;
+  font-size: 1.5rem;
   text-decoration: none;
-
+  transition: all 0.3s ease;
 }
 
-.navbar a:hover {
+.social-sidebar a:hover {
   color: var(--primary);
+  transform: scale(1.6);
 }
 
-.navbar a:focus-visible,
+.social-sidebar a:focus-visible,
 .footer a:focus-visible,
 .main-links:focus-visible {
   outline: 2px solid var(--accent);
@@ -164,6 +158,19 @@ main h2 {
   margin: 3rem 0;
 }
 
+.publications li {
+  margin-bottom: 1.5rem;
+}
+
+.pub-authors {
+  font-size: 0.9rem;
+  color: var(--primary);
+}
+
+.pub-venue {
+  font-size: 0.9rem;
+}
+
 section ul {
   margin: 0 2rem;
 }
@@ -177,23 +184,18 @@ section ul {
   border-top: 1px solid var(--secondary);
 }
 
-@media (max-width: 840px) {
+@media (max-width: 985px) {
   html {
     font-size: 120%;
   }
 
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar a {
-    margin: 0.1rem 0.1rem;
-  }
-
-  .nav-right {
-    padding-top: 1rem;
-    flex-direction: column;
+  .social-sidebar {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
   }
 
   main h2 {

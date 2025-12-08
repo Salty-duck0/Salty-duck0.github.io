@@ -143,21 +143,21 @@ function startLiveClock() {
   const el = document.querySelector('.footer #live-now');
   if (!el) return null;
 
-  const dateOptsDay   = { day: '2-digit' };
+  const dateOptsDay = { day: '2-digit' };
   const dateOptsMonth = { month: 'long' };
-  const dateOptsYear  = { year: 'numeric' };
-  const timeOpts      = { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+  const dateOptsYear = { year: 'numeric' };
+  const timeOpts = { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
 
   function update() {
     const now = new Date();
 
     // Build "DD date Month YYYY year"
-    const day   = now.toLocaleDateString(undefined, dateOptsDay);
+    const day = now.toLocaleDateString(undefined, dateOptsDay);
     const month = now.toLocaleDateString(undefined, dateOptsMonth);
-    const year  = now.toLocaleDateString(undefined, dateOptsYear);
+    const year = now.toLocaleDateString(undefined, dateOptsYear);
 
     // Build "HH:MM:SS"
-    const time  = now.toLocaleTimeString(undefined, timeOpts);
+    const time = now.toLocaleTimeString(undefined, timeOpts);
 
     el.textContent = `${day} ${month} ${year} || ${time}`;
   }
