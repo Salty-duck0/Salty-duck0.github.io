@@ -80,6 +80,7 @@ main h2 {
 
 .intro-text {
   flex: 1;
+  position: relative;
 }
 
 .profile-wrapper {
@@ -113,6 +114,26 @@ main h2 {
 .profile-wrapper:active .profile-pic {
   transform: scale(0.95);
 }
+
+.hold-icon {
+  position: absolute;
+  top: -100px;
+  right: -150px;
+  width: 200px;
+  z-index: 10;
+  pointer-events: none;
+  transform: rotate(-15deg);
+}
+
+/* .arrow1 {
+  position: absolute;
+  top: 5px;
+  right: 500px;
+  width: 200px;
+  z-index: 10;
+  pointer-events: none;
+  transform: scaleX(-1) rotate(-115deg);
+} */
 
 .progress-ring {
   position: absolute;
@@ -166,6 +187,33 @@ section ul {
   padding-bottom: 0.5rem;
   border-top: 1px solid var(--secondary);
 }
+
+/* .leave-note-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--secondary);
+  color: var(--text);
+  border: 2px solid var(--accent);
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.leave-note-btn:hover {
+  background: var(--accent);
+  color: var(--background);
+  transform: scale(1.05);
+}
+
+.leave-note-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+} */
 
 @media (max-width: 985px) {
   html {
